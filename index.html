@@ -130,6 +130,7 @@
         ctx.fillRect(bola.x, bola.y, bola.altura, bola.altura)
 
         //Placar
+        ctx.fillStyle = 'yellow'
         ctx.font = '20px Arial' //definindo a fonte
         ctx.fillText('Player 1: ' + esquerda.score, 50, 20)
         ctx.fillText('Player 2: ' + direita.score, canvas.width - 160, 20)
