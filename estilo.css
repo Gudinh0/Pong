@@ -6,3 +6,9 @@ canvas {
   margin-top: -300px;
   margin-left: -300px;
 }
+
+div#menu {
+  position: relative;
+  margin: 20% 40%;
+  align-items: center;
+}
