@@ -47,7 +47,9 @@
         altura: 120,
         largura: 30,
         score: 0,
-        speed: 5
+        speed: 5,
+        direcao: 'down',
+        velocidade: 3
       }
 
       document.addEventListener('keydown', function (e) {
@@ -93,8 +95,10 @@
         }
         if (bola.y <= 0) {
           bola.diry = 1
+          direita.direcao = 'down'
         } else if (bola.y + bola.altura >= canvas.height) {
           bola.diry = -1
+          direita.direcao = 'up'
         }
         bola.x += (bola.speed + bola.mod) * bola.dirx
         bola.y += (bola.speed + bola.mod) * bola.diry
@@ -135,6 +139,14 @@
         ctx.fillText('Player 1: ' + esquerda.score, 50, 20)
         ctx.fillText('Player 2: ' + direita.score, canvas.width - 160, 20)
 
+        if (direita.direcao == 'up' && direita.y !== 0) {
+          direita.y -= direita.velocidade
+        } else {
+          if (direita.y + direita.altura !== canvas.height) {
+            direita.y += direita.velocidade
+          }
+        }
+
         //outra forma de atualizar a pagina dentro da função
         //setTimeout(desenha, 20)
       }
@@ -143,5 +155,6 @@
 
       setInterval(desenha, 20)
     </script>
+    <a href="index.html">Menu Principal</a>
   </body>
 </html>
